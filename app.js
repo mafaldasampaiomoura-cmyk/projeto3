@@ -23,6 +23,7 @@ O que deve acontecer quando a página recarrega?
 
 
 const botao = document.querySelector(".adiciona-historia"); 
+import { addTransactions, getTransactions, transactions } from "./transactions/transactions";
 
 botao.addEventListener("click", () => {
     let descricao = document.querySelector("#descricao").value;
@@ -47,7 +48,7 @@ botao.addEventListener("click", () => {
         data: new Date().toLocaleDateString("pt-PT"),
     }
 
-    console.log("Nova Transação:", novaTransacao);
-
+    addTransactions(novaTransacao); //aqui estou a guardar o objeto que criei no array. 
+    console.log(getTransactions); 
 });
 
