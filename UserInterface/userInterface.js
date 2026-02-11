@@ -18,4 +18,12 @@ REFLEXÃO:
 DESAFIO:
 Como aplicar classes diferentes para receita e despesa?
 */
-export const UI_OK = true;
+
+let transacao = document.querySelector(".lista-transacao");
+
+function renderTransactions (){
+   const listaTransacao = document.querySelector(".lista-transacao");
+   listaTransacao.innerHTML = ""; //isto "esvazia" a caixa antes de voltar a preencher a mesma 
+
+   listaTransacao.f
+}
