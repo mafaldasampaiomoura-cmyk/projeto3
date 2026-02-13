@@ -1,14 +1,24 @@
-export let transactions = [
-   {id:1, descricao: "café", valor: 2, tipo: "despesa", data: new Date().toLocaleDateString("pt-PT")}, 
-   {id:2, descricao: "salário", valor: 1000, tipo:"receita", data: new Date().toLocaleDateString("pt-PT")}
-];
+export let transactions = [];
 
+export function carregarTransactions (){ //carregar a informação do LocalStorafe no momento em que inicio
+   const data = localStorage.getItem("transacoes"); 
+
+   if(data) {
+      transactions = JSON.parse(data); //parse - transforma texto em array 
+   }
+};
+
+export function guardarTransactions (){
+   localStorage.setItem("transacoes", JSON.stringify(transactions));  //stringify - transforma array em texto 
+
+}
 export function getTransactions(){
    return transactions;
-}
+};
 
 export function addTransactions(novaTransacao){
-   transactions.push(novaTransacao)
+   transactions.push(novaTransacao);
+   guardarTransactions();
 }; 
 
 
