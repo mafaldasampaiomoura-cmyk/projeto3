@@ -1,30 +1,9 @@
-/*
-OBJETIVO:
-Conectar tudo. -- responsável por ligar tudo! 
-
-PASSO A PASSO:
-
-1) Capturar inputs do formulário.
-2) Escutar clique do botão.
-3) Validar dados.
-4) Criar objeto transação.
-5) Atualizar estado.
-6) Re-renderizar UI.
-7) Limpar formulário.
-
-IMPORTANTE:
-Sempre que adicionar uma transação:
-- Atualizar lista
-- Atualizar cards
-
-Pergunta:
-O que deve acontecer quando a página recarrega?
-*/
-
-
 const botao = document.querySelector(".adiciona-historia"); 
+const botoesCategoria = document.querySelectorAll(".categorias");
+const inputDescricao = document.querySelector("#descricao");
 
-import {transactions, carregarTransactions, guardarTransactions, getTransactions, addTransactions} from "./transactions/transactions.js";
+
+import {transactions, carregarTransactions, getTransactions, addTransactions, removeTransaction} from "./transactions/transactions.js";
 import { renderTransactions, atualizacaoCards } from "./UserInterface/userInterface.js";
 
 carregarTransactions(); 
@@ -41,9 +20,9 @@ botao.addEventListener("click", () => {
     const quanTipoValor = quanTipo.value; 
     const tipoValor = tipo.value; 
 
-    const valorNumero = Number(quanTipo);
+    const valorNumero = Number(quanTipoValor);
 
-    if (descricao.trim() === "" || quanTipo.trim() === "" || tipo.trim() === ""){
+    if (descricaoValor.trim() === "" || quanTipoValor.trim() === "" || tipoValor.trim() === ""){
         alert("Por favor, preencha os dados!")
         return;
     }
@@ -55,21 +34,25 @@ botao.addEventListener("click", () => {
 
     const novaTransacao = { // tem de ser criado aqui dentro porque ele depende de coisas em que eu vou clicar. Ou seja, eu preencho e depois crio a nova Transação para ficar guardado 
         id: Date.now(), 
-        descricao: descricao, 
+        descricao: descricaoValor, 
         valor: valorNumero, 
-        tipo: tipo, 
+        tipo: tipoValor, 
         data: new Date().toLocaleDateString("pt-PT"),
     }
 
     addTransactions(novaTransacao); //aqui estou a guardar o objeto que criei no array.
     renderTransactions(); // faz a renderização 
-    atualizacaoCards(getTransactions());
+    atualizacaoCards();
 
     //Apagar os inputs 
 
     descricao.value=""; //responsáveis por apagar os inputs 
     quanTipo.value=""; 
-    tipo.value=""; 
+    tipo.value="receita"; 
 });
 
-
+botoesCategoria.forEach((botao) => { //para colocar os botões a funcionarem na parte da inserção
+  botao.addEventListener("click", () => {
+    inputDescricao.value = botao.textContent.trim();
+  });
+});

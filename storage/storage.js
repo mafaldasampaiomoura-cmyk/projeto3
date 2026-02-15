@@ -1,25 +1,11 @@
-/*
-OBJETIVO:
-Salvar e recuperar as transações no localStorage.
 
-PENSAMENTO:
+const STORAGE_KEY = "transacoes";
 
-1) Precisamos definir uma chave fixa para armazenar os dados.
-2) Quando salvar:
-   - Converter array de objetos para JSON.
-   - Usar localStorage.setItem().
-3) Quando carregar:
-   - Buscar com localStorage.getItem().
-   - Se existir, converter de volta com JSON.parse().
-   - Se não existir, retornar array vazio.
+export function saveTransactions(lista) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(lista));
+}
 
-PERGUNTAS PARA VOCÊ:
-- O que acontece se não existir nada salvo?
-- Por que precisamos usar JSON.stringify?
-- O que localStorage realmente armazena?
-
-DICA:
-localStorage só aceita strings.
-*/
-
-export const STORAGE_OK = true;
+export function loadTransactions() {
+  const dados = localStorage.getItem(STORAGE_KEY);
+  return dados ? JSON.parse(dados) : [];
+}
