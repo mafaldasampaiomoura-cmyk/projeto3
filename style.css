@@ -6,13 +6,13 @@
 }
 
 :root {
-    --primary-color: #5742b1;
-    --secondary-color:rgb(174, 174, 174);
-    --tertiary-color: rgb(41, 39, 39);
-    --accent-color: #f6f8f7;
-    --gray-titles: white;
+    --primary-color: #2563eb;
+    --secondary-color: white;
+    --tertiary-color: #6b7280;
+    --accent-color: #9ca3af;
+    --gray-titles: #6b7280;
     --expense-color: #e64b4b;
-    --card-borders: #white;
+    --card-borders: #888e9b;
     --card-background: #0405055a;
     --primary-color-opacity: #13ec9241;
 }
@@ -52,10 +52,10 @@ body {
 }
 
 .logo {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--accent-color);
-    font-family: cursive, sans-serif;
+    font-family: sans-serif;
 }
 
 .financas {
@@ -102,10 +102,10 @@ body {
 }
 
 .calendario { 
-    color: var(--accent-color);
+    color: white;
     font-size: 12px;
     padding: 8px 16px;
-    background-color: var(--card-background);
+    background-color: gray;
     border: 1px solid var(--tertiary-color);
     border-radius: 5px;
 }
@@ -183,7 +183,7 @@ body {
 }
 
 .titulo-card {
-    color: var(--gray-titles);
+    color: white;
     font-size: 14px;
 }
 
@@ -220,7 +220,7 @@ body {
 }
 
 .titulo-nova-transacao {
-    color: var(--accent-color);
+    color: white;
     font-size: 14px;
     font-weight: bold;
 }
@@ -249,7 +249,7 @@ body {
 }
 
 .form-container label {
-    color: var(--gray-titles);
+    color: white;
     font-size: 12px;
 }
 
@@ -258,7 +258,7 @@ body {
     border: 1px solid var(--card-borders);
     border-radius: 4px;
     background-color: transparent;
-    color: var(--accent-color);
+    color: white;
 }
 
 .description-form {
@@ -290,11 +290,17 @@ body {
 }
 
 .categorias {
-    color: var(--accent-color);
+    color: white;
+    background-color:#5c76ad;
+    cursor: pointer;
     font-size: 12px;
     padding: 12px;
     border: 1px solid var(--card-borders);
     border-radius: 8px;
+}
+
+.categorias:hover{
+    opacity: 0.7;
 }
 
 .adiciona-historia {
@@ -313,6 +319,11 @@ body {
     align-items: center;
     gap: 8px;
     font-weight: 600;
+    cursor:pointer; 
+}
+
+.btn-container:hover{
+    opacity: 0.7; 
 }
 
 .titulo-historico-container {
@@ -332,7 +343,7 @@ body {
 }
 
 .sub-titulo-historico {
-    color: var(--accent-color);
+    color: white;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
@@ -340,7 +351,7 @@ body {
 
 .cabecalho-tabela {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    grid-template-columns: 2fr 2fr 1fr 1fr 40px; 
     padding: 10px 20px;
     color: var(--gray-titles);
     font-size: 11px;
@@ -350,13 +361,14 @@ body {
 
 .item-transacao {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 40px;
     align-items: center;
     background-color: var(--card-background);
     border: 1px solid var(--card-borders);
     border-radius: 8px;
     padding: 12px 20px;
     margin-bottom: 12px;
+    gap: 12px; 
 }
 
 .info-transacao {
@@ -396,6 +408,24 @@ body {
     font-weight: 500;
 }
 
+.btn-remover{
+    background-color: white;
+    border: none; 
+    border-radius: 7px;
+    cursor: pointer; 
+    font-size: 18px;
+    line-height: 1;
+    padding:0; 
+    width: 28px;
+    height: 28px;
+    display:grid; 
+    place-items: center; 
+    padding: 0; 
+}
+
+.btn-remover:hover{
+    opacity: 0.7;
+}
 .etiqueta {
     padding: 4px 8px;
     border-radius: 4px;
@@ -445,3 +475,4 @@ body {
     padding: 15px;
     text-align: center;
 }
+
